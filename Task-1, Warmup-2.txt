@@ -1,0 +1,231 @@
+//1
+public String stringTimes(String str, int n) {
+  StringBuilder sb = new StringBuilder();
+  for(int i=0;i<n;i++)
+  {sb.append(str);}
+  return sb.toString();
+}
+
+
+//2
+public String frontTimes(String str, int n) {
+  StringBuilder sb = new StringBuilder();
+  if(str.length()>=3)
+  {
+    for(int i=0;i<n;i++)
+    {
+      sb.append(str.substring(0,3));
+    }
+    return sb.toString();
+  }
+  else
+  {
+    for(int i=0;i<n;i++)
+    {
+      sb.append(str);
+    }
+    return sb.toString();
+  }
+}
+
+
+//3
+int countXX(String str) {
+  int c=0;
+  for(int i=0;i+1<str.length();i++)
+  {
+    if(str.substring(i,i+2).equals("xx"))
+    c++;
+  }
+  return c;
+}
+
+
+//4
+boolean doubleX(String str) {
+  if(str.length()>=2)
+  {
+    int i = str.indexOf("x");
+  if(i+1<str.length() && str.charAt(i+1)=='x')
+  return true;
+  }
+  return false;
+}
+
+
+//5
+public String stringBits(String str) {
+  StringBuilder sb = new StringBuilder();
+  int i;
+  for(i=0;i<str.length(); i+=2)
+  {
+    sb.append(str.charAt(i));
+  }
+  return sb.toString();
+}
+
+
+//6
+public String stringSplosion(String str) {
+  int i,j;
+  StringBuilder sb = new StringBuilder();
+  for(i =0;i<str.length();i++)
+  { j=0;
+    while (j<=i)
+    sb.append(str.charAt(j++));
+  }
+  return sb.toString();
+}
+
+
+//7
+public int last2(String str) {
+  
+  int c=0;
+  if(str.length()>=2)
+  {String s = str.substring(str.length()-2, str.length());
+    for(int i=0; i<str.length()-2;i++)
+  {
+    if(str.substring(i,i+2).equals(s))
+    c++;
+  }
+  }
+  
+  return c;
+}
+
+//8
+public int arrayCount9(int[] nums) {
+  int c=0, i;
+  for(i=0;i<nums.length;i++)
+  {
+    if(nums[i]==9) c++;
+  }
+  return c;
+}
+
+
+//9
+public boolean arrayFront9(int[] nums) {
+  boolean chk=false;
+  for(int i=0;i<nums.length;i++)
+  {
+    if (i>3) 
+    {break;}
+    else
+    {
+      if(nums[i]==9)
+      chk = true;
+    }
+  }
+  return chk;
+}
+
+
+//10
+public boolean array123(int[] nums) {
+  int i;
+  boolean c=false;
+  for(i=0;i+2<nums.length;i++)
+  {
+    if(nums[i]==1 && nums[i+1]==2 && nums[i+2]==3)
+    c=true;
+  }
+  return c;
+}
+
+
+
+//11
+public int stringMatch(String a, String b) {
+  int c=0;
+  for(int i=0;i<a.length()-1 && i<b.length()-1;i++)
+  {
+    if(a.substring(i,i+2).equals(b.substring(i,i+2)))
+    c++;
+  }
+  return c;
+}
+
+//12
+public String stringX(String str) {
+  StringBuilder sb = new StringBuilder();
+  if(str.length()>=1)
+  {
+    sb.append(str.charAt(0));
+  for (int i=1;i<str.length()-1;i++)
+  {
+    if(str.charAt(i)!='x')
+    sb.append(str.charAt(i));
+  }
+  if(str.length()>=2)
+  sb.append(str.charAt(str.length()-1));
+  return sb.toString();
+  }
+  return str;
+}
+
+//13
+public String altPairs(String str) {
+  String s="";
+  for(int i=0;i<str.length();i+=4)
+  {
+    s=s+str.substring(i,i+1);
+    if(i+1<str.length())
+    s=s+str.substring(i+1,i+2);
+  }
+  return s;
+}
+
+
+//14
+public String stringYak(String str) {
+  String s = "";
+  for(int i=0;i<str.length();i++)
+  {
+    if(i+2<str.length()&& str.substring(i,i+1).equals("y") && str.substring(i+2,i+3).equals("k"))
+      i+=2;
+      
+    else
+      s=s+str.substring(i,i+1);
+  }
+  return s;
+}
+
+
+
+//15
+public int array667(int[] nums) {
+  int c = 0;
+  for (int i=0;i+1<nums.length;i++)
+  {
+    if(nums[i]==6 && (nums[i+1]==6||nums[i+1]==7))
+    c++;
+  }
+  return c;
+}
+
+
+//16
+public boolean noTriples(int[] nums) {
+  for(int i = 0;i+2<nums.length;i++)
+  {
+    if(nums[i]==nums[i+1] && nums[i]==nums[i+2])
+    return false;
+  }
+  return true;
+}
+
+
+//17
+public boolean has271(int[] nums) {
+  for(int i =0;i+2<nums.length;i++)
+  {
+    if(nums[i+1]==nums[i]+5 &&(Math.abs((nums[i]-1)-nums[i+2])<=2))
+    return true;
+  }
+  return false;
+}
+
+
+
