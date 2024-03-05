@@ -1,0 +1,116 @@
+//1
+public boolean makeBricks(int small, int big, int goal) {
+  int x = goal/5;
+  if(small*1+big*5>=goal || (big*5==goal || small*1==goal))
+  return true;
+  else if(goal-x*5<=small && x<=big)
+  return true;
+  else if(goal/5<=big && small>=goal%5)
+  return true;
+  return false;
+}
+
+
+//2
+public int loneSum(int a, int b, int c) {
+  if(a==b && b==c)return 0;
+  if(a==b)return c;
+  if(b==c)return a;
+  if(a==c)return b;
+  return a+b+c;
+}
+
+
+//3
+public int luckySum(int a, int b, int c) {
+  if(a!=13&&b!=13&&c!=13)
+  return a+b+c;
+  if(a==13) return 0;
+  if(b==13)return a;
+  if(c==13)return a+b;
+  return 0;
+}
+
+//4
+public int fixTeen(int n){
+  if(n==15||n==16)
+  return n;
+  if(n>=13 && n<=19)
+  return 0;
+  return n;
+}
+
+public int noTeenSum(int a, int b, int c) {
+  a=fixTeen(a);
+  b=fixTeen(b);
+  c=fixTeen(c);
+  return a+b+c;
+}
+
+
+//5
+public int round10(int num){
+  if(num%10>=5)
+  return num+10-(num%10);
+  else
+  return num-(num%10);
+}
+
+public int roundSum(int a, int b, int c) {
+  a=round10(a);
+  b=round10(b);
+  c=round10(c);
+  return a+b+c;
+}
+
+
+//6
+public boolean closeFar(int a, int b, int c) {
+  if(Math.abs(a-b)<=1 && (Math.abs(b-c)>=2 && Math.abs(c-a)>=2))
+  return true;
+  if(Math.abs(a-c)<=1 && (Math.abs(b-c)>=2 && Math.abs(b-a)>=2))
+  return true;
+  return false;
+}
+
+
+//7
+public int blackjack(int a, int b) {
+  if(a>21 && b>21)
+  return 0;
+  if(a>21) return b;
+  if(b>21) return a;
+  else return 21-a>21-b?b:a;
+}
+
+
+//8
+public boolean evenlySpaced(int a, int b, int c) {
+  if(a==b^b==c) return false;
+  if(Math.abs(a-b)==Math.abs(b-c)||Math.abs(a-c)==Math.abs(b-a)||Math.abs(a-c)==Math.abs(b-c))
+  return true;
+  return false;
+}
+
+//9
+public int makeChocolate(int small, int big, int goal) {
+  int x;
+  if(goal<5 && small>=goal)
+  return goal;
+  else if(goal>=5)
+  {
+    if(goal>=5*big)
+    {
+      if(small>=(goal-5*big))
+      return goal-5*big;
+    }
+    else
+    {
+      x=goal/5;
+     if(goal-(5*x)<=small) return goal-(5*x);
+    }
+  }
+  return -1;
+}
+
+

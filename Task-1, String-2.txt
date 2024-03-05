@@ -1,0 +1,279 @@
+//1
+public String doubleChar(String str) {
+  String s="";
+  for(int i=0;i<str.length();i++)
+  s+=str.substring(i,i+1)+str.substring(i,i+1);
+  return s;
+}
+
+
+//2
+public int countHi(String str) {
+  int c=0;
+  for(int i=0;i+1<str.length();i++)
+  {
+    if(str.substring(i,i+2).equals("hi"))
+    c++;
+  }
+  return c;
+}
+
+
+//3
+public boolean catDog(String str) {
+  int c=0, d=0;
+  for(int i=0;i+2<str.length();i++)
+  {
+    if(str.substring(i,i+3).equals("cat"))
+    c++;
+    if(str.substring(i,i+3).equals("dog"))
+    d++;
+  }
+  return c==d?true:false;
+}
+
+
+//4
+public int countCode(String str) {
+  int c=0;
+  for(int i=0;i+3<str.length();i++)
+  {
+    if(str.substring(i,i+2).equals("co") && str.charAt(i+3)=='e')
+    c++;
+  }
+  return c;
+}
+
+
+//5
+public boolean endOther(String a, String b) {
+  if(a.toLowerCase().endsWith(b.toLowerCase())||b.toLowerCase().endsWith(a.toLowerCase()))
+  return true;
+  return false;
+}
+
+
+//6
+public boolean xyzThere(String str) {
+  boolean c=true;
+  for(int i=1;i+2<str.length();i++)
+  {
+    if(str.charAt(i-1)=='.' && str.substring(i,i+3).equals("xyz"))
+    c=false;
+    else if(str.charAt(i-1)!='.' && str.substring(i,i+3).equals("xyz"))
+    c=true;
+  }
+  return !str.contains("xyz")?false:c;
+}
+
+
+//7
+public boolean bobThere(String str) {
+  for(int i=0;i+2<str.length();i++)
+  {
+    if(str.charAt(i)=='b' && str.charAt(i+2)=='b')
+    return true;
+  }
+  return false;
+}
+
+
+//8
+public boolean xyBalance(String str) {
+  int c=0;
+  for(int i=0;i<str.length();i++)
+  {
+    if(str.charAt(i)=='x')
+    c=1;
+    if(c==1 && str.charAt(i)=='y')
+    c=0;
+  }
+  return (c==1)?false:true;
+}
+
+
+//9
+public String mixString(String a, String b) {
+  int l=0;
+  String s = "";
+  boolean len=false;
+  if(a.length()==b.length())
+  {
+    l=a.length();
+    for(int i=0;i<l;i++)
+    {
+      s=s+a.charAt(i);
+      s=s+b.charAt(i);
+    }
+    return s;
+  }
+  else if(a.length()>b.length()) {l = b.length(); len=true;}
+  else if(a.length()<b.length()) l = a.length();
+  for(int i=0;i<l;i++)
+  {
+    s=s+a.charAt(i);
+    s=s+b.charAt(i);
+  }
+  if(len)s=s+a.substring(l);
+  else s=s+b.substring(l);
+  return s;
+}
+
+
+//10
+public String repeatEnd(String str, int n) {
+  String s="";
+  for(int i=0;i<n;i++)
+  {
+    s=s+str.substring(str.length()-n);
+  }
+  return s;
+}
+
+
+//11
+public String repeatFront(String str, int n) {
+  String s="";
+  while(n>=0)
+  {
+    s=s+str.substring(0,n--);
+  }
+  return s;
+}
+
+
+//12
+public String repeatSeparator(String word, String sep, int count) {
+  String s = "";
+  for(int i=0;i<count;i++)
+  {
+    s=s+word;
+    if(i<count-1)
+    s=s+sep;
+  }
+  return s;
+}
+
+
+//13
+public boolean prefixAgain(String str, int n) {
+  String s = str.substring(0,n);
+  str=str.substring(n);
+  if(str.contains(s))
+  return true;
+  return false;
+}
+
+
+//14
+public boolean xyzMiddle(String str) {
+  int i=-1;
+  if(str.contains("xyz"))
+  {
+    i=str.substring(1).indexOf("xyz");
+    //i-=1;
+    if(i>=((str.length()-1)/2)-1 && i<=((str.length()-1)/2)+1)
+    return true;
+  }
+  return false;
+}
+
+
+//15
+public String getSandwich(String str) {
+  int c=0,i1=-1,i2=-1;
+  String s="";
+  if(str.contains("bread"))
+  {
+    i1 = str.indexOf("bread");
+    //if(i1+5<)
+    s=str.substring(i1+5);
+    if(s.contains("bread"))
+    {i2=s.lastIndexOf("bread");
+    return s.substring(0,i2);
+    }
+  }
+  return "";
+}
+
+
+//16
+public boolean sameStarChar(String str) {
+  for(int i=1;i+1<str.length();i++)
+  {
+    if(str.charAt(i)=='*')
+    {
+      if(str.charAt(i-1)!=str.charAt(i+1))
+      return false;
+    }
+  }
+  return true;
+}
+
+
+//17
+public String oneTwo(String str) {
+  String s="", t="";
+  for(int i=0;i+2<str.length();i+=3)
+  {
+    s=s+str.substring(i+1,i+3)+str.charAt(i);
+  }
+  return s;
+}
+
+
+//18
+public String zipZap(String str) {
+  
+}
+
+
+//19
+public String starOut(String str) {
+  StringBuilder sb = new StringBuilder();
+  String s="";
+  for(int i=0;i+1<str.length();i++)
+  {
+    if(i-1>0&& str.charAt(i+1)!='*' &&str.charAt(i-1)!='*' && str.charAt(i)!='*')
+    s=s+str.charAt(i);
+  }
+  return s;
+}
+
+//20
+public String plusOut(String str, String word) {
+  String s="";
+  for(int i=0;i<str.length();i++)
+  {
+    if(i+word.length()<=str.length() && str.substring(i,i+word.length()).equals(word))
+    {
+      s=s+word;
+      i+=word.length()-1;
+    }
+    else
+    s=s+"+";
+  }
+  return s;
+}
+
+
+//21
+public String wordEnds(String str, String word) {
+  String s="";
+  int i=-1;
+  for(int j=0;j<str.length();j++)
+  {
+    if(j+word.length()<=str.length() && str.substring(j,j+word.length()).equals(word))
+    {
+    //i=str.indexOf(word);
+    if(j-1>=0)
+    s=s+str.substring(j-1,j);
+    if(j+word.length()<str.length())
+    s=s+str.charAt(j+word.length());
+    }
+  }
+  
+  return s;
+}
+
+

@@ -1,0 +1,116 @@
+//1
+public int countYZ(String str) {
+  int c=0;
+  str=str.toLowerCase();
+  if(str.charAt(str.length()-1)=='y' || str.charAt(str.length()-1)=='z')
+    c++;
+  for(int i=1;i<str.length();i++)
+  {
+    
+    if(!Character.isLetter(str.charAt(i))&&(str.charAt(i-1)=='y'||str.charAt(i-1)=='z' ))
+    c++;
+  }
+  return c;
+}
+
+
+//2
+public String withoutString(String base, String remove) {
+  String s="";
+  base=base.toLowerCase();
+  remove=remove.toLowerCase();
+  for(int i=0;i+remove.length()<base.length();i++)
+  {
+    if(base.substring(i,i+remove.length()).equals(remove)==false)
+    s=s+base.charAt(i);
+    else i+=remove.length()-1;
+  }
+  return s;
+}
+
+//3
+public boolean equalIsNot(String str) {
+  //str=str.toLowerCase();
+  int is=0, not=0;
+  for(int i=0;i<str.length();i++)
+  {
+    if(i+1<str.length()&&str.substring(i,i+2).equals("is"))
+      is++;
+    if(i+2<str.length()&&str.substring(i,i+3).equals("not"))
+    not++;
+  }
+  return is==not?true:false;
+}
+
+
+//4
+public boolean gHappy(String str) {
+  for(int i=1;i+1<str.length();i++)
+  {
+    //if(i==str.length()-1 && str.charAt(i-1)!='g')return false;
+    //else if(i==str.length()-1 && str.charAt(i-1)=='g') return true;
+    if(str.charAt(i)=='g')
+    if(str.charAt(i-1)!='g'&&str.charAt(i+1)!='g')
+    return false;
+  }
+  if(str.length()==1)
+  return false;
+  return true;
+}
+
+
+//5
+public int countTriple(String str) {
+  int c=0;
+  for(int i=0;i+2<str.length();i++)
+  {
+    if(str.charAt(i)==str.charAt(i+1) && str.charAt(i+1)==str.charAt(i+2))
+    c++;
+  }
+  return c;
+}
+
+
+//6
+public int sumDigits(String str) {
+  int s=0;
+  for(int i=0;i<str.length();i++)
+  {
+    if(Character.isDigit(str.charAt(i)))
+    s+=Integer.parseInt(str.substring(i,i+1));
+  }
+  return s;
+}
+
+
+//7
+public String sameEnds(String string) {
+  
+}
+
+
+//8
+public String mirrorEnds(String string) {
+  
+}
+
+
+//9
+public int maxBlock(String str) {
+  
+}
+
+
+//10
+public int sumNumbers(String str) {
+  
+}
+
+
+//11
+public String notReplace(String str) {
+  
+}
+
+
+
